@@ -7,7 +7,7 @@ from azure.eventhub import EventHubProducerClient, EventData
 
 BINANCE_URL = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1000"
 EVENTHUB_NAME = "artemzharkov10_evh"
-# CONNECTION_STR = "storage in key-value"
+CONNECTION_STR = "deleted for github"
 
 def fetch_1000_candles():
     try:
@@ -17,7 +17,7 @@ def fetch_1000_candles():
         data_list = response.json()
         parsed_data = []
         
-        for data in data_list:
+        for i, data in enumerate(data_list):
             timestamp_ms = data[0]
             date_str = datetime.fromtimestamp(timestamp_ms / 1000.0).strftime('%Y-%m-%d %H:%M:%S')
             
@@ -28,8 +28,10 @@ def fetch_1000_candles():
                 "Low": float(data[3]),
                 "Close": float(data[4]),
                 "Volume": float(data[5]),
-                "Market_Cap": float(data[4]) * float(data[5]) # new column for testing schema evolution
             }
+            if i >= 500:
+                event_payload["Market_Cap"] = float(data[4]) * float(data[5])
+            
             parsed_data.append(event_payload)
             
         return parsed_data
@@ -53,7 +55,7 @@ def run_producer():
 
     BATCH_SIZE = 100
     total_sent = 0
-    current_batch_num = 0
+        
     with producer:
         # Splitting our list of 1000 items into chunks
         for i in range(0, len(candles), BATCH_SIZE):
@@ -72,7 +74,7 @@ def run_producer():
                 producer.send_batch(event_batch)
                 
                 total_sent += len(chunk)
-                current_batch_num +=1
+                current_batch_num = (i // BATCH_SIZE) + 1
                 
                 print(f"Sent batch {current_batch_num}/10. Total messages in Event Hub: {total_sent}. Last Date: {chunk[-1]['Date']}")
                 
