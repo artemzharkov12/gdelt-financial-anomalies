@@ -6,6 +6,7 @@ from databricks.sdk import WorkspaceClient
 import os
 
 w = WorkspaceClient()
+spark = SparkSession.getActiveSession()
 
 # Define catalog, schema, and volume names
 catalog_name = "dbr_dev"
@@ -19,16 +20,15 @@ json_landing_path: str = f"/Volumes/{catalog_name}/{music_schema}/{volume_name}/
 music_metadata_dir: str = f"/Volumes/{catalog_name}/{music_schema}/{volume_name}/music_metadata/"
 music_metadata_file = f"{music_metadata_dir}/music_discography.csv/"
 bronze_music_metadata_table = f"{catalog_name}.{music_schema}.bronze_music_metadata"
+bronze_music_stats_table = f"{catalog_name}.{music_schema}.bronze_music_stats"
 
 # Create the catalog and set it as the active catalog
 def setup_catalog():
-    spark = SparkSession.getActiveSession()
     spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog_name}")
     spark.sql(f"USE CATALOG {catalog_name}")
 
 # Create the schema and volume if they do not exist
 def setup_schema_and_volume():
-    spark = SparkSession.getActiveSession()
     spark.sql(f"CREATE SCHEMA IF NOT EXISTS {music_schema}")
     spark.sql(f"CREATE VOLUME IF NOT EXISTS {volume_path}")
 
@@ -39,7 +39,6 @@ def setup_music_metadata_and_json_dirs():
 
 # Create the bronze Delta table if it doesn't exist
 def setup_bronze_music_metadata_table():
-    spark = SparkSession.getActiveSession()
     spark.sql(f"CREATE TABLE IF NOT EXISTS {bronze_music_metadata_table}")
 
     
