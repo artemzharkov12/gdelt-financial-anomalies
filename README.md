@@ -14,7 +14,8 @@ Our code is strictly organized into four logical layers (Medallion Architecture)
 * `a` = Bitcoin (Artem)
 * `b` = GDELT News Data
 * `c` = NVIDIA Stocks (Team Member 2)
-* `d` = Oil Futures (Team Member 3)
+* `d` = NASDAQ Daily Price History (Valerii)
+* `e` = Finnhub Financial News (Valerii)
 
 ### Folders:
 * **`01_landing/`**: Scripts for fetching data from external APIs and saving raw dumps (JSON/CSV/ZIP) into Databricks Volumes. 
