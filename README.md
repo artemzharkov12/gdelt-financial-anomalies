@@ -68,3 +68,7 @@ To maintain a stable codebase and meet strict lab requirements, **NO direct comm
 2.  **Committing:** Commit and push your changes using the Databricks Git UI.
 3.  **Pull Requests & Mandatory Approval:** Once your code is ready, open a Pull Request (PR) against the `main` branch. **As per the lab requirements, merging is strictly prohibited without an explicit approval from another team member.** 
 4.  **Scheduled Team Merges:** We do not merge PRs randomly. We will hold scheduled sync sessions (at an agreed-upon time) to jointly review the code, approve the PRs, and merge them into `main`. After the merge is complete, always pull the latest `main` branch into your Databricks environment before starting a new task.
+
+## Dashboards
+
+[NASDAQ Dashboards](https://adb-7405604503619901.1.azuredatabricks.net/dashboardsv3/01f18b8fbb601f0da0c73ac953d27ea2/published?o=7405604503619901&f_f783a2b5%7Etop-alpha-moving-news-headlines=%7B%22columns%22%3A%5B%22columns_0%22%2C%22columns_1%22%2C%22columns_2%22%2C%22columns_3%22%2C%22columns_4%22%5D%2C%22rows%22%3A%5B%5B%22MSFT%22%2C%222026-07-27T00%3A00%3A00.000Z%22%2C%22Sector+Update%3A+Tech+Stocks+Decline+Late+Afternoon%22%2C%221.9387%22%2C%222.2471%22%5D%5D%7D)
