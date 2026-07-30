@@ -31,3 +31,4 @@ agent_skills/
 | Skill | Description |
 | --- | --- |
 | [python_doc_expert](./python_doc_expert/SKILL.md) | Writing, reviewing, and generating Python documentation — docstrings, type annotations, and doc-site tooling. |
+| [readme_expert](./readme_expert/SKILL.md) | Contextual README generator. Evaluates directory context to produce a root-level or sub-module `README.md`, with a built-in pre-flight check against redundant documentation. |

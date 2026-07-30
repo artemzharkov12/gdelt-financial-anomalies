@@ -18,18 +18,16 @@ sys.path.insert(0, "../../../00_setup/pawel_project")
 
 from video_id_extractor import find_video_ids
 import requests
-from music_pipeline_setup import bronze_music_metadata_table, spark, yt_api_key
+from music_pipeline_setup import silver_music_metadata_table, spark, yt_api_key, yt_video_url
 from pyspark.sql.functions import col
 from datetime import datetime
 
-# YouTube Data API v3 statistics endpoint
-yt_video_url: str = "https://www.googleapis.com/youtube/v3/videos"
 
 
 def read_data_from_api(batch_size: int = 50) -> list[dict]:
     """Fetch video statistics for all tracks in the music metadata table.
 
-    Reads ``bronze_music_metadata_table``, extracts YouTube video IDs,
+    Reads ``silver_music_metadata_table``, extracts YouTube video IDs,
     queries the YouTube Data API v3 in batches of up to ``batch_size``
     items, and returns a list of enriched statistics records.
 
@@ -43,7 +41,7 @@ def read_data_from_api(batch_size: int = 50) -> list[dict]:
         ``view_count``, ``like_count``, ``comment_count``, ``author``,
         ``song_title``. Non-numeric counts are coerced to ``None``.
     """
-    metadata_table = spark.read.table(bronze_music_metadata_table)
+    metadata_table = spark.read.table(silver_music_metadata_table)
     metadata_table, video_ids_list = find_video_ids(metadata_table)
 
     # Precompute video_id -> [album, title, author] mapping for fast lookup
