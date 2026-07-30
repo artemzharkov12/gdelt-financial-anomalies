@@ -65,7 +65,6 @@ from music_pipeline_setup import json_landing_path, music_stats_tables
 00_setup/pawel_project/
 ├── music_pipeline_setup.py   # Central config module — import this everywhere
 ├── setup                     # Notebook: one-time environment setup (run before all else)
-└── 00c_catalog_env_setup     # Notebook: alternative catalog/environment bootstrap
 ```
 
 ---
@@ -75,7 +74,7 @@ from music_pipeline_setup import json_landing_path, music_stats_tables
 | Requirement | Detail |
 | --- | --- |
 | Unity Catalog enabled | Workspace must have UC enabled on `dbr_dev` catalog |
-| Secret scope | `pawelnowak2004pri219_scope` with key `pawelnowak-youtube-api` must exist |
+| Secret scope | A Databricks secret scope containing the YouTube Data API v3 key must exist. Set `DBRICKS_SECRET_SCOPE` and `DBRICKS_SECRET_KEY` in `.env` or as cluster environment variables. |
 | Shared compute | USER_ISOLATION data security mode (Spark Connect) |
 
 ---
