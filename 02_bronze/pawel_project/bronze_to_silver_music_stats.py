@@ -24,6 +24,7 @@ from delta_per_hour_metrics import compute_per_hour_deltas
 
 _SILVER_COLUMNS: Final[list[str]] = [
     "author",
+    "video_id",
     "album",
     "song_title",
     "_ingested_at",
