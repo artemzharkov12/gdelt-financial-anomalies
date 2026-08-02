@@ -14,7 +14,8 @@ Our code is strictly organized into four logical layers (Medallion Architecture)
 * `a` = Bitcoin (Artem)
 * `b` = GDELT News Data
 * `c` = NVIDIA Stocks (Team Member 2)
-* `d` = Oil Futures (Team Member 3)
+* `d` = NASDAQ Daily Price History (Valerii)
+* `e` = Finnhub Financial News (Valerii)
 
 ### Folders:
 * **`01_landing/`**: Scripts for fetching data from external APIs and saving raw dumps (JSON/CSV/ZIP) into Databricks Volumes. 
@@ -67,3 +68,7 @@ To maintain a stable codebase and meet strict lab requirements, **NO direct comm
 2.  **Committing:** Commit and push your changes using the Databricks Git UI.
 3.  **Pull Requests & Mandatory Approval:** Once your code is ready, open a Pull Request (PR) against the `main` branch. **As per the lab requirements, merging is strictly prohibited without an explicit approval from another team member.** 
 4.  **Scheduled Team Merges:** We do not merge PRs randomly. We will hold scheduled sync sessions (at an agreed-upon time) to jointly review the code, approve the PRs, and merge them into `main`. After the merge is complete, always pull the latest `main` branch into your Databricks environment before starting a new task.
+
+## Dashboards
+
+[NASDAQ Dashboards](https://adb-7405604503619901.1.azuredatabricks.net/dashboardsv3/01f18b8fbb601f0da0c73ac953d27ea2/published/pages/f783a2b5?o=7405604503619901)
