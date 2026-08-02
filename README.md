@@ -71,4 +71,4 @@ To maintain a stable codebase and meet strict lab requirements, **NO direct comm
 
 ## Dashboards
 
-[NASDAQ Dashboards](https://adb-7405604503619901.1.azuredatabricks.net/dashboardsv3/01f18b8fbb601f0da0c73ac953d27ea2/published?o=7405604503619901&f_f783a2b5%7Etop-alpha-moving-news-headlines=%7B%22columns%22%3A%5B%22columns_0%22%2C%22columns_1%22%2C%22columns_2%22%2C%22columns_3%22%2C%22columns_4%22%5D%2C%22rows%22%3A%5B%5B%22MSFT%22%2C%222026-07-27T00%3A00%3A00.000Z%22%2C%22Sector+Update%3A+Tech+Stocks+Decline+Late+Afternoon%22%2C%221.9387%22%2C%222.2471%22%5D%5D%7D)
+[NASDAQ Dashboards](https://adb-7405604503619901.1.azuredatabricks.net/dashboardsv3/01f18b8fbb601f0da0c73ac953d27ea2/published/pages/f783a2b5?o=7405604503619901)
